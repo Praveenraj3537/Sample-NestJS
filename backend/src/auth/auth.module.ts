@@ -1,10 +1,10 @@
 import { Module } from "@nestjs/common";
-import { PrismadbModule } from "src/prismadb/prismadb.module";
+import { JwtModule } from "@nestjs/jwt";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
 
 @Module({
-    imports:[PrismadbModule],
+    // imports:[PrismadbModule, JwtModule.register({})],
     controllers:[AuthController],
     providers: [AuthService]
 })
