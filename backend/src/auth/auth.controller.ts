@@ -1,41 +1,31 @@
 import {
   Body,
   Controller,
-  Get,
   Post,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthDto } from './dto/auth.dto';
+import { AuthDto } from './dto';
 
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
+  // private readonly logger = new Logger(
+  //   AuthController.name,
+  // );
   @Post('signup')
-  signup(@Body() dataValues)
-   {
-
-    console.log({
-      data: dataValues
-    });
+  signup(@Body() authDTO: AuthDto) {
+    /**
+     * Below way of access the data from the body will execute but it will not take of validation
+     */
+    // signup(@Body('email') email:string, @Body('password') password:string) {
+    // console.log(email, password);
     
-    // console.log({
-    //   email,
-    //   typeOfEmail: typeof email,
-    //   pass,
-    //   typeOfPassword: typeof pass,
-      
-    // });
 
-    // console.log({mail: dto.email});
-    // console.log(dto.password);
-
-    // console.log({
-
-    //     email: dto.email,
-    //     pass: dto.password
-    // }
-    // );
+   console.log({
+    data: authDTO
+  });
+   
     return this.authService.signup();
   }
 
