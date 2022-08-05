@@ -5,7 +5,7 @@ import { AuthDto } from './dto';
 @Injectable()
 export class AuthService {
   constructor(
-    private jwt: JwtService,
+    // private jwt: JwtService,
   ) {}
 
   signup(dto: AuthDto) {
